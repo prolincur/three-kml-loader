@@ -1,7 +1,7 @@
 
 # three-kml-loader
 
-**three-kml-loader** is a cross platform [GeoJSON](https://www.rfc-editor.org/rfc/rfc7946.html) file loader for THREE.js. It takes URL of a GeoJSON file or object of GeoJSON data as an input and returns THREE.js Object3D entities. This library works out of the box with cross platform react-native and react-three-fibre as well.
+**three-kml-loader** is a cross platform [GeoJSON](https://www.rfc-editor.org/rfc/rfc7946.html) file loader for THREE.js. It takes URL of a KML file as an input and returns THREE.js Object3D entities. This library works out of the box with cross platform react-native and react-three-fiber as well.
 
 #### Install
 ```
