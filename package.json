@@ -1,6 +1,6 @@
 {
   "name": "three-kml-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cross platform KML loader for three.js. Out of the box usable with react-three-fiber.",
   "module": "src/main.js",
   "main": "dist/app.js",

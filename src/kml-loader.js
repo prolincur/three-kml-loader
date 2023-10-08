@@ -44,19 +44,33 @@ class KmlLoader extends THREE.FileLoader {
   }
 
   parse(text) {
-    if (!text) return null
-
     const scope = this
-
-    const parser = new DOMParser()
-    const xmlDoc = parser.parseFromString(text, 'text/xml')
-    const geojson = ToGeoJson.kml(xmlDoc, { styles: true })
+    const geojson = scope.parseToGeoJson(text)
+    if (!geojson) return null
 
     const loader = new GeoJsonLoader()
     loader.setColor(scope.color)
     loader.setTransform(scope.transform)
 
     return loader.parse(geojson)
+  }
+
+  parseToGeoJson(text) {
+    if (!text) return null
+    let xmlDoc = null
+    const win = window || {}
+    if (typeof text === 'string') {
+      const parser = new DOMParser()
+      xmlDoc = parser.parseFromString(text, 'text/xml')
+    } else if (win.Node && text instanceof win.Node) {
+      xmlDoc = text
+    } else {
+      console.warn('Unsupported input', text)
+      xmlDoc = text
+    }
+
+    const geojson = ToGeoJson.kml(xmlDoc, { styles: true })
+    return geojson
   }
 }
 
